@@ -1,0 +1,22 @@
+@import '../../scss/baseSass';
+
+.searchBar {
+  background-color: $yellowML;
+  &__content {
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  &__form {
+    width: 100%;
+    display: flex;
+    &_search {
+      width: 100%;
+      background-color: red;
+    }
+    &_button {
+      background-color: blue;
+    }
+  }
+}
