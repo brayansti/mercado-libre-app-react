@@ -1,0 +1,59 @@
+/* MIXINS */
+
+// Flexbox
+@mixin flex($horizontal: center, $vertical: center, $wrap:wrap, $display: flex){
+	display: $display;
+	justify-content: $horizontal;
+	align-items: $vertical;
+	align-content: $vertical;
+	flex-wrap: $wrap;
+}
+
+// PX to REM
+@mixin fontSize($size){
+    font-size: ($size / $baseFont) + rem;
+}
+
+// Transitions
+@mixin transition($property: all, $time: .3, $timing: ease){
+	transition: $property $time + s $timing;
+}
+
+// Call animation
+@mixin animation($name, $time) {
+	animation: $name linear $time;
+	animation-iteration-count: infinite;
+	transform-origin: 50% 50%;
+}
+
+// Placeholder styles
+@mixin optional-at-root($sel) {
+	@at-root #{if(not &, $sel, selector-append(&, $sel))} {
+		@content;
+	}
+}
+
+@mixin placeholder {
+	@include optional-at-root('::-webkit-input-placeholder') {
+		@content;
+	}
+	@include optional-at-root(':-moz-placeholder') {
+		@content;
+	}
+	@include optional-at-root('::-moz-placeholder') {
+		@content;
+	}
+	@include optional-at-root(':-ms-input-placeholder') {
+		@content;
+	}
+}
+
+// Clear float
+@mixin clear-b () {
+	&::after,&::before{
+		content: "";
+		display: table;
+		clear: both;
+		width: 100%;
+	}
+}
