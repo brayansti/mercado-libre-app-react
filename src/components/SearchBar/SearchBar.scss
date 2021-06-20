@@ -1,6 +1,7 @@
 @import '../../scss/baseSass';
 
 .searchBar {
+  padding: 7px;
   background-color: $yellowML;
   &__content {
     width: 100%;
@@ -9,14 +10,29 @@
     max-width: 1200px;
   }
   &__form {
+    overflow: hidden;
+    border-radius: 4px;
     width: 100%;
     display: flex;
     &_search {
       width: 100%;
-      background-color: red;
+      input {
+        width: 100%;
+        height: 100%;
+        padding: 0 15px;
+        border: 1px solid $grayBg2;
+      }
     }
     &_button {
-      background-color: blue;
+      width: 38px;
+      height: 38px;
+      input {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        border: 1px solid transparent;
+        background: url(../../assets/ic_Search.png) $grayBg2 center center no-repeat;
+      }
     }
   }
 }
