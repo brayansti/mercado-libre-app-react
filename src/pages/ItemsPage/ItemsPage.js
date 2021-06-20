@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 import eventBus from "../../eventBus/eventBus";
-// import {useLocation} from "react-router-dom";
+import {Link} from "react-router-dom";
+import './ItemsPage.scss';
 
 
 class ItemsPage extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
   state = {
     resultItems: [],
     isLoading: true,
@@ -40,6 +38,7 @@ class ItemsPage extends Component {
     fetch(`https://api.mercadolibre.com/sites/MLA/search?q=:${stringQuery}&limit=8`)
     .then(res => res.json())
     .then(data => {
+      console.log(data.results)
       this.setState({
         resultItems: data.results,
         isLoading: false,
@@ -49,25 +48,41 @@ class ItemsPage extends Component {
   }
 
   render() {
-    const { resultItems, isLoading, searchQuery } = this.state;
+    const { resultItems, isLoading } = this.state;
     if (isLoading) {
       return <p>Loading ...</p>;
     }
     return (
-      <ul>
-        <h1>
-          Results for {searchQuery}
-        </h1>
-        {resultItems.map(result =>
-          <li key={result.id}>
-            <p>
-              {result.title}
-            </p>
-          </li>
-        )}
-      </ul>
+      <article className="itemsResults">
+        <ol>
+          {resultItems.map(result =>
+            <li key={result.id}>
+              <Link to="/" className="itemResult" title={result.title}>
+                <div className="itemResult__image">
+                  <img src={result.thumbnail} alt={result.title} />
+                </div>
+                <div className="itemResult__info pt10">
+                  <p className="itemResult__info_price">
+                    {this.currencyFormat(result.price)}
+                  </p>
+                  <p className="itemResult__info_description mt10">
+                    {result.title}
+                  </p>
+                </div>
+                <div className="itemResult__city pt30">
+                  {result.address.state_name}
+                </div>
+              </Link>
+            </li>
+          )}
+        </ol>
+      </article>
     )
   }
+
+  currencyFormat (num) {
+    return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+ }
 
 }
 export default withRouter(ItemsPage);
