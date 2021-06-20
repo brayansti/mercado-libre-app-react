@@ -3,6 +3,7 @@ import logo from '../../assets/Logo_ML.png';
 import React, { Component } from 'react';
 import { withRouter } from "react-router";
 import PropTypes from "prop-types";
+import eventBus from "../../eventBus/eventBus";
 
 class SearchBar extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class SearchBar extends Component {
     const { history } = this.props;
     event.preventDefault()
     history.push(`/items?search=${this.state.searchValue}`)
+    eventBus.dispatch("onSearchDone", {query : this.state.searchValue})
   }
 
   handleSearchChange (event) {
