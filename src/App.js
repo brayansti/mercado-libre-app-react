@@ -8,15 +8,16 @@ function App() {
     <div className="App">
       <Router>
         <SearchBar />
-        <Switch>
-          <Route exact path="/">
-            Welcome
-          </Route>
-          <Route path="/items">
-            <ItemsPage />
-          </Route>
-        </Switch>
-
+        <div className="container pb30 pt30">
+          <Switch>
+            <Route exact path="/">
+              Welcome
+            </Route>
+            <Route path="/items">
+              <ItemsPage />
+            </Route>
+          </Switch>
+        </div>
       </Router>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
