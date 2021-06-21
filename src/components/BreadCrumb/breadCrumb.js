@@ -2,9 +2,6 @@ import './breadCrumb.scss'
 import React, { Component } from 'react';
 
 class BreadCrumb extends Component {
-  constructor(props) {
-    super(props)
-  }
   state = {
     categories: [],
     query: 'iphone 5'
