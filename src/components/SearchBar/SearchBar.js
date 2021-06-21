@@ -3,6 +3,7 @@ import logo from '../../assets/Logo_ML.png';
 import React, { Component } from 'react';
 import { withRouter } from "react-router";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 import eventBus from "../../eventBus/eventBus";
 
 class SearchBar extends Component {
@@ -38,7 +39,9 @@ class SearchBar extends Component {
       <article className="searchBar">
         <section className="searchBar__content">
           <div className="searchBar__logo mr15">
-            <img src={logo} alt="Merdado libre" />
+            <Link to="/">
+              <img src={logo} alt="Merdado libre" />
+            </Link>
           </div>
           <form className="searchBar__form" onSubmit={this.handleSubmit}>
             <div className="searchBar__form_search">

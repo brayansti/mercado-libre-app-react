@@ -1,6 +1,8 @@
 import './scss/global.scss';
+import banner from './assets/banner.webp';
 import SearchBar from "./components/SearchBar/SearchBar";
 import ItemsPage from "./pages/ItemsPage/ItemsPage";
+import DetailPage from "./pages/DetailPage/DetailPage";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 
 function App() {
@@ -8,31 +10,24 @@ function App() {
     <div className="App">
       <Router>
         <SearchBar />
-        <div className="container pb30 pt30">
+        <div className="containerFluid">
           <Switch>
             <Route exact path="/">
-              Welcome
+              <img src={banner} alt="Welcome" title="Welcome" />
             </Route>
+          </Switch>
+        </div>
+        <div className="container pb30 pt30">
+          <Switch>
             <Route path="/items">
               <ItemsPage />
+            </Route>
+            <Route path="/detail/:id">
+              <DetailPage />
             </Route>
           </Switch>
         </div>
       </Router>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
     </div>
   );
 }

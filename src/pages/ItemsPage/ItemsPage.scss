@@ -10,6 +10,9 @@
   column-gap: 15px;
   position: relative;
   grid-template-columns: 160px auto 200px;
+  @media #{$mediaMobile}{
+  	display: block;
+  }
   &::after {
     width: calc(100% - 30px);
     left: 0;
@@ -27,7 +30,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $grayBg2;
+    @media #{$mediaMobile}{
+      width: 100%;
+    }
+    img {
+      display: block;
+      max-height: 100%;
+    }
   }
   &__info {
     color: $blackTxt;

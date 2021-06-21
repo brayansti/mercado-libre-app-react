@@ -12,15 +12,14 @@
 @import 'base/fonts';
 @import 'base/general';
 
+/* LIBRARIES */
+@import 'libraries/grid-bootstrap';
+// @import 'libraries/animateCSS';
 
 /* UTILITIES */
 @import 'utilities/separates';
 @import 'utilities/states';
 
-
-/* LIBRARIES */
-@import 'libraries/grid-bootstrap';
-// @import 'libraries/animateCSS';
 
 @import 'components/buttons';
 

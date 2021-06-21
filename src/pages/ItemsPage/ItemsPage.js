@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 import eventBus from "../../eventBus/eventBus";
 import {Link} from "react-router-dom";
+import freeShippingIcon from '../../assets/ic_shipping.png';
 import './ItemsPage.scss';
 
 
@@ -57,13 +58,14 @@ class ItemsPage extends Component {
         <ol>
           {resultItems.map(result =>
             <li key={result.id}>
-              <Link to="/" className="itemResult" title={result.title}>
+              <Link to={`/detail/${result.id}`} className="itemResult" title={result.title}>
                 <div className="itemResult__image">
                   <img src={result.thumbnail} alt={result.title} />
                 </div>
                 <div className="itemResult__info pt10">
                   <p className="itemResult__info_price">
                     {this.currencyFormat(result.price)}
+                    {result.shipping.free_shipping ? <img className="ml10" src={freeShippingIcon} alt={result.shipping.logistic_type} /> : ''}
                   </p>
                   <p className="itemResult__info_description mt10">
                     {result.title}
