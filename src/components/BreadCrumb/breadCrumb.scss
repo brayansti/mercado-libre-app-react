@@ -1,4 +1,7 @@
+@import '../../scss/baseSass';
+
 .breadCrumb {
+  height: 20px;
   margin-bottom: 20px;
   &__item {
     cursor: pointer;
