@@ -1,0 +1,36 @@
+@import '../../scss/baseSass';
+
+.detailPage {
+  padding: 15px;
+  background-color: $white;
+  color: $blackTxt;
+  &__image {
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    max-height: 550px;
+    img {
+      object-fit: contain;
+    }
+  }
+  &__state {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  &__title {
+    font-size: 25px;
+    font-weight: 600;
+  }
+  &__price {
+    font-size: 40px;
+  }
+  &__description {
+    padding: 0 0 30px 30px;
+    &_title {
+      font-size: 30px;
+    }
+    &_text {
+      color: $grayTxtLight;
+    }
+  }
+}
