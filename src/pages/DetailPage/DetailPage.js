@@ -40,7 +40,6 @@ class DetailPage extends Component {
         isLoading: false,
         idQuery: stringQuery
       })
-      console.log(this.state.resultItems)
     });
   }
 

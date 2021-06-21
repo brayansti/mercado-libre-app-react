@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 class BreadCrumb extends Component {
   constructor(props) {
     super(props)
-    console.log('HEY', props)
   }
   state = {
     categories: [],
@@ -32,7 +31,6 @@ class BreadCrumb extends Component {
       this.setState({
         categories: data,
       })
-      console.log(this.state.categories)
     })
   }
 
