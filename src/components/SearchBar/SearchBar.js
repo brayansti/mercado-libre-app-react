@@ -37,7 +37,7 @@ class SearchBar extends Component {
   render () {
     return(
       <article className="searchBar">
-        <section className="searchBar__content">
+        <section className="container searchBar__content">
           <div className="searchBar__logo mr15">
             <Link to="/">
               <img src={logo} alt="Merdado libre" />

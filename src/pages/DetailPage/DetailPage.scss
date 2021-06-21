@@ -24,6 +24,15 @@
   &__price {
     font-size: 40px;
   }
+  &__btn {
+    margin-top: 60px;
+    @media #{$mediaMobile}  {
+      margin-top: 30px;
+    }
+    .btn {
+      width: calc(100% - 30px);
+    }
+  }
   &__description {
     padding: 0 0 30px 30px;
     &_title {

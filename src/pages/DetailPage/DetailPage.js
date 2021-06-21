@@ -26,12 +26,11 @@ class DetailPage extends Component {
   }
 
   getItems = (stringQuery) => {
-    const getItem = fetch(`https://api.mercadolibre.com/items/${stringQuery}`).then(res => res.json())
+    const getItem = fetch(`https://api.mercadolibre.com/items/${stringQuery}?attributes=pictures,condition,sold_quantity,title,price`).then(res => res.json())
     const getItemDescription = fetch(`https://api.mercadolibre.com/items/${stringQuery}/description`).then(res => res.json())
 
     Promise.all([getItem, getItemDescription])
     .then(([item, itemDescription]) => {
-      console.log(item, itemDescription)
       this.setState({
         resultItems: {
           ...item,
@@ -66,6 +65,9 @@ class DetailPage extends Component {
             </h1>
             <h2 className="detailPage__price">
               {this.currencyFormat(resultItems.price)}
+            </h2>
+            <h2 className="detailPage__btn">
+              <button className="btn btn--blue btn--square">Comprar</button>
             </h2>
           </div>
         </div>

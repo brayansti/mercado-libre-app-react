@@ -1,0 +1,16 @@
+.breadCrumb {
+  margin-bottom: 20px;
+  &__item {
+    cursor: pointer;
+    font-size: 14px;
+    color: $grayTxt;
+    &::after {
+      content: " > ";
+    }
+    &:last-of-type {
+      &::after {
+        content: "";
+      }
+    }
+  }
+}

@@ -6,32 +6,18 @@
 	text-align: center;
 	cursor: pointer;
 	@include transition;
-	&--gray {
-		color: $black;
-		background: $white;
-		border-color: $white;
+	&--blue {
+		color: $white;
+		background: $blueML;
+		border-color: $blueML;
 		&:hover {
-			background: $black;
-			color: $white;
-		}
-	}
-	&--circle {
-		width: 40px;
-		height: 40px;;
-		border-radius: 50%;
-		font-weight: normal;
-		&-big{
-			width: 60px;
-			height: 60px;
-			@include fontSize(20);
+			background: darken($blueML, 15%);
 		}
 	}
 	&--square {
 		padding: 10px;
-		border-radius: 10px;
-		.far, .fas{
-			@include fontSize(25);
-			margin-right: 5px;
-		}
+		font-size: 20px;
+		font-weight: 100;
+		border-radius: 5px;
 	}
 }
